@@ -1,8 +1,7 @@
 # Planejamento de Requisitos para Aplicação
 
 ## 1. Objetivo da Aplicação
-Descreva o propósito da aplicação. Qual problema ela resolve? Quem são os usuários-alvo?
-- **Exemplo**: Desenvolver uma plataforma de comunicação entre usuários (pen pals), permitindo o envio de mensagens com desenhos para outros usuários aleatórios na base de dados.
+Criar uma plataforma que permite que estudantes compartilhem e vendam seu conhecimento em forma de cursos e aulas ao vivo, promovendo a aprendizagem colaborativa. O foco é possibilitar que qualquer estudante, com conhecimento em um determinado assunto, possa criar e comercializar cursos e dar aulas, enquanto outros estudantes podem comprá-los para aprender novas habilidades, ou pagar pelo seu tempo de aula em tempo real.
 
 ---
 
