@@ -33,6 +33,8 @@ Criar uma plataforma que permite que estudantes compartilhem e vendam seu conhec
   - Fórum
     1. Alunos podem fazer perguntas sobre as aulas e conversar com outros alunos ou instrutores.
 
+---
+
 ### 3. **Requisitos Não-Funcionais**
   - Performance
     1. Respostas rápidas: até 2 segundos para carregar páginas e buscar aulas.
@@ -90,9 +92,7 @@ Estas são as APIs que a aplicação vai fornecer para que o frontend se comuniq
 | Método | Rota           | Descrição                           | Parâmetros              | Resposta                     |
 |--------|----------------|-------------------------------------|-------------------------|------------------------------|
 | POST   | /login          | Autenticar usuário                  | { email, senha }         | Token de autenticação         |
-| POST   | /register       | Registrar novo usuário              | { nome, email, senha }   | Confirmação de registro       |
-| GET    | /messages       | Obter mensagens recebidas           | Token de autenticação    | Lista de mensagens            |
-| POST   | /messages       | Enviar nova mensagem                | { conteúdo, desenho }    | Confirmação de envio          |
+| POST   | /register       | Registrar novo usuário              | { nome, gênero, tipo, email, senha }   | Confirmação de registro       |
 | PUT    | /profile        | Atualizar informações de perfil     | { nome, preferências }   | Perfil atualizado             |
 
 ### 5.2 APIs de Terceiros (Externas)
@@ -131,17 +131,56 @@ Para utilizar essas APIs externas, você precisará configurar chaves de API (AP
 ## 6. Modelo de Dados
 Defina as tabelas ou coleções que serão usadas no banco de dados.
 
-### Exemplo: Tabela de Usuários
+
+### Tabela de Usuários
 
 | Campo      | Tipo       | Descrição                            |
 |------------|------------|--------------------------------------|
 | id         | INT        | Identificador único do usuário       |
-| nome       | VARCHAR(50)| Nome do usuário                      |
-| email      | VARCHAR(100)| Email do usuário                    |
-| senha      | VARCHAR(255)| Senha criptografada                 |
+| nome       | VARCHAR(510)| Nome do usuário                      |
+| email      | VARCHAR(254)| Email do usuário                    |
+| senha      | VARCHAR(255)| Senha SHA256                 |
 | criado_em  | DATETIME   | Data de criação do usuário           |
+| perfil_descricao | TEXT  | Descrição do perfil do usuário | 
+| genero | VARCHAR(62) | Gênero do usuário | 
+| premium | DATETIME | Indica o último dia que o usuário tem de premium  |
+| tipo | int | Indica se o usuário é instrutor ou aluno | 
 
-### Exemplo: Tabela de Mensagens
+### Tabela de Aulas
+
+| Campo             | Tipo          | Descrição                              |
+|-------------------|---------------|----------------------------------------|
+| id                | INT           | Identificador único da aula             |
+| instrutor_id      | INT           | ID do instrutor que criou a aula        |
+| título            | VARCHAR(255)  | Título da aula                          |
+| descrição        | TEXT          | Descrição detalhada da aula             |
+| data              | DATETIME      | Data e hora da aula ao vivo             |
+| preço             | DECIMAL(10, 2)| Preço da aula                           |
+| gravada           | BOOLEAN       | Se a aula foi gravada para alunos premium |
+| arquivos_extras   | JSON          | Lista de URLs de arquivos extras (PDFs, etc.)|
+
+### Tabela de Compras
+
+| Campo             | Tipo          | Descrição                              |
+|-------------------|---------------|----------------------------------------|
+| id                | INT           | Identificador único da compra           |
+| aluno_id          | INT           | ID do aluno que comprou a aula          |
+| aula_id           | INT           | ID da aula comprada                     |
+| data_compra       | DATETIME      | Data e hora da compra                   |
+| preço             | DECIMAL(10, 2)| Preço pago pela aula                    |
+
+### Tabela de Avaliações
+
+| Campo             | Tipo          | Descrição                              |
+|-------------------|---------------|----------------------------------------|
+| id                | INT           | Identificador único da avaliação        |
+| aula_id           | INT           | ID da aula avaliada                     |
+| aluno_id          | INT           | ID do aluno que fez a avaliação         |
+| nota              | INT           | Nota da avaliação (1 a 5)               |
+| comentário        | TEXT          | Comentário adicional do aluno           |
+| data_avaliacao    | DATETIME      | Data da avaliação                       |
+
+### Tabela de Mensagens
 
 | Campo         | Tipo        | Descrição                          |
 |---------------|-------------|------------------------------------|
@@ -149,8 +188,17 @@ Defina as tabelas ou coleções que serão usadas no banco de dados.
 | remetente_id  | INT         | ID do usuário remetente            |
 | destinatario_id | INT       | ID do usuário destinatário         |
 | conteúdo      | TEXT        | Texto da mensagem                  |
-| desenho       | BLOB        | Desenho enviado (opcional)         |
 | enviado_em    | DATETIME    | Data de envio                      |
+
+### Tabela de Fórum
+
+| Campo         | Tipo        | Descrição                          |
+|---------------|-------------|------------------------------------|
+| id            | INT         | Identificador único do post        |
+| autor_id      | INT         | ID do usuário que fez o post       |
+| título        | VARCHAR(255)| Título do post                      |
+| conteúdo      | TEXT        | Conteúdo do post                    |
+| data_postagem | DATETIME    | Data e hora da postagem             |
 
 ---
 
