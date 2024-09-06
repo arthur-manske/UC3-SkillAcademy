@@ -216,8 +216,8 @@ Defina um cronograma com as fases do projeto e estimativas de tempo para cada et
 | Fase                      | Descrição                                  | Tempo Estimado       |
 |----------------------------|--------------------------------------------|----------------------|
 | Planejamento                | Definição de requisitos e arquitetura      | 1 semana             |
-| Desenvolvimento do Backend  | Implementação das APIs e banco de dados    | 3 semanas            |
-| Desenvolvimento do Frontend | Implementação do frontend e integração     | 3 semanas            |
+| Desenvolvimento do Backend  | Implementação das APIs e banco de dados    | 4 semanas            |
+| Desenvolvimento do Frontend | Implementação do frontend e integração     | 4 semanas            |
 | Testes                      | Testes funcionais e ajustes                | 1 semana             |
 | Implantação                 | Deploy da aplicação em ambiente de produção| 1 semana             |
 
