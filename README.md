@@ -4,13 +4,7 @@
 Criar uma plataforma que permite que estudantes compartilhem e vendam seu conhecimento em forma de cursos e aulas ao vivo, promovendo a aprendizagem colaborativa. O foco é possibilitar que qualquer estudante, com conhecimento em um determinado assunto, possa criar e comercializar cursos e dar aulas, enquanto outros estudantes podem comprá-los para aprender novas habilidades, ou pagar pelo seu tempo de aula em tempo real.
 
 ---
-
-## 2. Funcionalidades Principais
-Liste as principais funcionalidades que a aplicação deve oferecer.
-
-Aqui estão os **requisitos funcionais e não funcionais** detalhados para o projeto da plataforma de ensino colaborativo:
-
-### 1. **Requisitos Funcionais**
+### 2. **Requisitos Funcionais**
   - Cadastro e Login
     1. Usuários (Instrutores e Alunos) devem poder se cadastrar e fazer login com e-mail e senha.
     2. O sistema deve permitir login via Google ou Facebook.
@@ -39,14 +33,15 @@ Aqui estão os **requisitos funcionais e não funcionais** detalhados para o pro
   - Fórum
     1. Alunos podem fazer perguntas sobre as aulas e conversar com outros alunos ou instrutores.
 
-### 2. **Requisitos Não-Funcionais**
+### 3. **Requisitos Não-Funcionais**
   - Performance
     1. Respostas rápidas: até 2 segundos para carregar páginas e buscar aulas.
     2. Suportar até 1000 usuários ao mesmo tempo.
 
   - Segurança
-    1. Criptografar senhas dos usuários.
+    1. Criptografar senhas dos usuários com algoritmos como SHA256 ou SHA512.
     2. Proteger contra ataques como roubo de dados e acessos indevidos.
+    3. Proteção contra injeção SQL (SQL Injection).
 
   - Compatibilidade
     1. Funcionar em navegadores populares como Chrome, Firefox, Safari e Edge.
@@ -68,12 +63,12 @@ Aqui estão os **requisitos funcionais e não funcionais** detalhados para o pro
 Defina as tecnologias que serão utilizadas, tanto no frontend quanto no backend, além do banco de dados e hospedagem.
 
 - **Frontend**:
-  - Framework: React ou Vue.js.
+  - Frameworks: React ou Vue.js
   - Biblioteca de componentes: Material UI ou Bootstrap.
   - Responsividade: CSS Grid/Flexbox.
 
 - **Backend**:
-  - Linguagem: Node.js com Express.js.
+  - Linguagem: Ruby on Rails.
   - APIs: REST (ou GraphQL).
 
 - **Banco de Dados**:
