@@ -8,38 +8,59 @@ Criar uma plataforma que permite que estudantes compartilhem e vendam seu conhec
 ## 2. Funcionalidades Principais
 Liste as principais funcionalidades que a aplicação deve oferecer.
 
-- **Autenticação**:
-  - Cadastro de usuários.
-  - Login e Logout.
-  - Recuperação de senha.
+Aqui estão os **requisitos funcionais e não funcionais** detalhados para o projeto da plataforma de ensino colaborativo:
 
-- **Funcionalidades para Usuários**:
-  - Criar e enviar mensagens.
-  - Enviar desenhos juntamente com as mensagens.
-  - Receber mensagens aleatórias de outros usuários.
-  - Editar perfil e preferências.
+### 1. **Requisitos Funcionais**
+  - Cadastro e Login
+    1. Usuários (Instrutores e Alunos) devem poder se cadastrar e fazer login com e-mail e senha.
+    2. O sistema deve permitir login via Google ou Facebook.
+    3. Opção de recuperar senha caso o usuário esqueça.
+    4. Perfis de Usuário
+    5. Alunos e Instrutores devem ter perfis com foto, biografia e histórico de aulas ou cursos.
+    6. Alunos e Instrutores podem editar suas informações a qualquer momento.
+       
+  - Criação de Aulas
+    1. Instrutores podem criar aulas ao vivo com:
+    2. Título, descrição, data e preço.
+    3. Opção de gravar a aula para alunos premium.
+    4. Instrutores podem subir arquivos extras, como PDFs.
 
-- **Administração**:
-  - Gerenciar usuários.
-  - Monitorar atividades.
+  - Busca e Compra de Aulas
+    1. Alunos podem buscar aulas por categoria, palavras-chave e nível (iniciante, intermediário, avançado).
+    2. Alunos podem comprar aulas e receber notificações sobre as aulas agendadas.
 
----
+  - Avaliação
+    1. Após a aula, os alunos podem avaliar a qualidade do conteúdo e do instrutor.
+    2. As avaliações ficam visíveis no perfil do instrutor.
 
-## 3. Requisitos Não Funcionais
-Estes são os aspectos que afetam o desempenho, a segurança e a experiência geral da aplicação.
+  - Dashboard do Instrutor
+    1. Instrutores podem acompanhar suas aulas, ganhos e avaliações em um painel simples.
 
-- **Performance**:
-  - Tempo de resposta de até 2 segundos para ações de envio de mensagens.
-  - Suporte a até 1000 usuários simultâneos.
+  - Fórum
+    1. Alunos podem fazer perguntas sobre as aulas e conversar com outros alunos ou instrutores.
 
-- **Segurança**:
-  - Criptografia de senhas.
-  - Controle de acesso seguro para usuários e administradores.
-  - Proteção contra ataques comuns (ex.: SQL Injection, XSS).
+### 2. **Requisitos Não-Funcionais**
+  - Performance
+    1. Respostas rápidas: até 2 segundos para carregar páginas e buscar aulas.
+    2. Suportar até 1000 usuários ao mesmo tempo.
 
-- **Compatibilidade**:
-  - Compatível com os principais navegadores (Chrome, Firefox, Safari, Edge).
-  - Responsividade para dispositivos móveis e desktops.
+  - Segurança
+    1. Criptografar senhas dos usuários.
+    2. Proteger contra ataques como roubo de dados e acessos indevidos.
+
+  - Compatibilidade
+    1. Funcionar em navegadores populares como Chrome, Firefox, Safari e Edge.
+    2. Adaptar o design para celulares e computadores.
+
+  - Escalabilidade
+    1. O sistema deve crescer de acordo com o aumento de usuários, sem travar ou ficar lento.
+  
+  - Backup
+    1. Realizar backups regulares dos dados para garantir que nada seja perdido.
+
+  - Modelo de Monetização
+    1. O sistema deve implementar um **mecanismo de comissão**, onde a plataforma cobra uma taxa de 10% sobre cada transação realizada.
+    2. Deve oferecer um **plano de assinatura premium** para remover anúncios e permitir que os alunos gravem e acessem as aulas gravadas posteriormente.
 
 ---
 
