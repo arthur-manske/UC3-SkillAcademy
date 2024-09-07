@@ -1,4 +1,4 @@
-# Planejamento de Requisitos para Aplicação
+21# Planejamento de Requisitos para Aplicação
 
 ## 1. Objetivo da Aplicação
 Criar uma plataforma que permite que estudantes compartilhem e vendam seu conhecimento em forma de cursos e aulas ao vivo, promovendo a aprendizagem colaborativa. O foco é possibilitar que qualquer estudante, com conhecimento em um determinado assunto, possa criar e comercializar cursos e dar aulas, enquanto outros estudantes podem comprá-los para aprender novas habilidades, ou pagar pelo seu tempo de aula em tempo real.
@@ -175,7 +175,7 @@ Defina as tabelas ou coleções que serão usadas no banco de dados.
 | id                | INT NOT NULL UNIQUE PK           | Identificador único da avaliação        |
 | aula_id           | INT NOT NULL           | ID da aula avaliada                     |
 | aluno_id          | INT NOT NULL          | ID do aluno que fez a avaliação         |
-| nota              | INT NOT NULL          | Nota da avaliação (1 a 5)               |
+| nota              | DECIMAL(1, 1) NOT NULL          | Nota da avaliação (1.0 a 5.0)               |
 | comentário        | TEXT          | Comentário adicional do aluno           |
 | data_avaliacao    | DATETIME NOT NULL     | Data da avaliação                       |
 
