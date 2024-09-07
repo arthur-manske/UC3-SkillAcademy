@@ -133,72 +133,71 @@ Defina as tabelas ou coleções que serão usadas no banco de dados.
 
 
 ### Tabela de Usuários
-
+|
 | Campo      | Tipo       | Descrição                            |
 |------------|------------|--------------------------------------|
-| id         | INT        | Identificador único do usuário       |
-| nome       | VARCHAR(510)| Nome do usuário                      |
-| email      | VARCHAR(254)| Email do usuário                    |
-| senha      | VARCHAR(255)| Senha SHA256                 |
-| criado_em  | DATETIME   | Data de criação do usuário           |
+| id         | INT NOT NULL UNIQUE PK      | Identificador único do usuário       |
+| nome       | VARCHAR(510) NOT NULL | Nome do usuário                      |
+| email      | VARCHAR(254) NOT NULL | Email do usuário                    |
+| senha      | VARCHAR(255) NOT NULL | Senha SHA256                 |
+| criado_em  | DATETIME NOT NULL | Data de criação do usuário           |
 | perfil_descricao | TEXT  | Descrição do perfil do usuário | 
 | genero | VARCHAR(62) | Gênero do usuário | 
 | premium | DATETIME | Indica o último dia que o usuário tem de premium  |
-| tipo | int | Indica se o usuário é instrutor ou aluno | 
+| tipo | INT NOT NULL | Indica se o usuário é instrutor ou aluno | 
 
 ### Tabela de Aulas
 
 | Campo             | Tipo          | Descrição                              |
 |-------------------|---------------|----------------------------------------|
-| id                | INT           | Identificador único da aula             |
-| instrutor_id      | INT           | ID do instrutor que criou a aula        |
-| título            | VARCHAR(255)  | Título da aula                          |
-| descrição        | TEXT          | Descrição detalhada da aula             |
-| data              | DATETIME      | Data e hora da aula ao vivo             |
-| preço             | DECIMAL(10, 2)| Preço da aula                           |
-| gravada           | BOOLEAN       | Se a aula foi gravada para alunos premium |
+| id                | INT NOT NULL UNIQUE PK         | Identificador único da aula             |
+| instrutor_id      | INT NOT NULL | ID do instrutor que criou a aula        |
+| titulo            | VARCHAR(255) NOT NULL | Título da aula                          |
+| descricao        | TEXT          | Descrição detalhada da aula             |
+| data              | DATETIME NOT NULL | Data e hora da aula ao vivo             |
+| preco             | DECIMAL(10, 2) NOT NULL | Preço da aula                           |
 | arquivos_extras   | JSON          | Lista de URLs de arquivos extras (PDFs, etc.)|
 
 ### Tabela de Compras
 
 | Campo             | Tipo          | Descrição                              |
 |-------------------|---------------|----------------------------------------|
-| id                | INT           | Identificador único da compra           |
-| aluno_id          | INT           | ID do aluno que comprou a aula          |
-| aula_id           | INT           | ID da aula comprada                     |
-| data_compra       | DATETIME      | Data e hora da compra                   |
-| preço             | DECIMAL(10, 2)| Preço pago pela aula                    |
+| id                | INT NOT NULL UNIQUE PK          | Identificador único da compra           |
+| aluno_id          | INT NOT NULL  | ID do aluno que comprou a aula          |
+| aula_id           | INT NOT NULL  | ID da aula comprada                     |
+| data_compra       | DATETIME NOT NULL | Data e hora da compra                   |
+| preco             | DECIMAL(10, 2) NOT NULL | Preço pago pela aula                    |
 
 ### Tabela de Avaliações
 
 | Campo             | Tipo          | Descrição                              |
 |-------------------|---------------|----------------------------------------|
-| id                | INT           | Identificador único da avaliação        |
-| aula_id           | INT           | ID da aula avaliada                     |
-| aluno_id          | INT           | ID do aluno que fez a avaliação         |
-| nota              | INT           | Nota da avaliação (1 a 5)               |
+| id                | INT NOT NULL UNIQUE PK           | Identificador único da avaliação        |
+| aula_id           | INT NOT NULL           | ID da aula avaliada                     |
+| aluno_id          | INT NOT NULL          | ID do aluno que fez a avaliação         |
+| nota              | INT NOT NULL          | Nota da avaliação (1 a 5)               |
 | comentário        | TEXT          | Comentário adicional do aluno           |
-| data_avaliacao    | DATETIME      | Data da avaliação                       |
+| data_avaliacao    | DATETIME NOT NULL     | Data da avaliação                       |
 
 ### Tabela de Mensagens
 
 | Campo         | Tipo        | Descrição                          |
 |---------------|-------------|------------------------------------|
-| id            | INT         | Identificador único da mensagem    |
-| remetente_id  | INT         | ID do usuário remetente            |
-| destinatario_id | INT       | ID do usuário destinatário         |
-| conteúdo      | TEXT        | Texto da mensagem                  |
-| enviado_em    | DATETIME    | Data de envio                      |
+| id            | INT NOT NULL UNIQUE PK         | Identificador único da mensagem    |
+| remetente_id  | INT NOT NULL         | ID do usuário remetente            |
+| destinatario_id | INT NOT NULL      | ID do usuário destinatário         |
+| conteúdo      | TEXT NOT NULL        | Texto da mensagem                  |
+| enviado_em    | DATETIME NOT NULL    | Data de envio                      |
 
 ### Tabela de Fórum
 
 | Campo         | Tipo        | Descrição                          |
 |---------------|-------------|------------------------------------|
-| id            | INT         | Identificador único do post        |
-| autor_id      | INT         | ID do usuário que fez o post       |
-| título        | VARCHAR(255)| Título do post                      |
-| conteúdo      | TEXT        | Conteúdo do post                    |
-| data_postagem | DATETIME    | Data e hora da postagem             |
+| id            | INT NOT NULL UNIQUE PK         | Identificador único do post        |
+| autor_id      | INT NOT NULL        | ID do usuário que fez o post       |
+| título        | VARCHAR(255) NOT NULL | Título do post                      |
+| conteúdo      | TEXT NOT NULL       | Conteúdo do post                    |
+| data_postagem | DATETIME NOT NULL   | Data e hora da postagem             |
 
 ---
 
