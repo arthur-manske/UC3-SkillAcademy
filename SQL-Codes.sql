@@ -18,6 +18,7 @@ CREATE TABLE classes (
    title VARCHAR(255) NOT NULL,
    description TEXT,
    createdAt DATETIME NOT NULL,
+   willHappenAt DATETIME NOT NULL,
    cost DECIMAL(10, 2) NOT NULL,
    extraFiles TEXT[],
    tags TEXT[],
