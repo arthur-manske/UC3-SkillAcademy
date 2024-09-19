@@ -28,7 +28,7 @@ export class Class {
 	public wasEditedAt():  Date { return this.editedAt;  }
 	public willHappenAt(): Date { return this.happensAt; }
 
-	public edit(newTitle: string, newDescription: string, newConst: number, newTags: string): void {
+	public edit(newTitle: string, newDescription: string, newCost: number, newTags: string[]): void {
 		this.title       = newTitle;
 		this.description = newDescription;
 		this.cost        = newCost;

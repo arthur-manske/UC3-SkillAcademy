@@ -15,5 +15,5 @@ export class Message {
 	public getRecipientId(): number { return this.recipientId; }
 	public getContents():    string { return this.contents;    }
 
-	public wasSentAt(): Date { return this.date; }
+	public wasSentAt(): Date { return this.sentAt; }
 };
