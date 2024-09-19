@@ -140,7 +140,8 @@ Defina as tabelas ou coleções que serão usadas no banco de dados.
 | name       | VARCHAR(510) NOT NULL | Nome do usuário                      |
 | email      | VARCHAR(254) NOT NULL | Email do usuário                    |
 | password      | VARCHAR(256) NOT NULL | Senha SHA256                 |
-| creationDate  | DATETIME NOT NULL | Data de criação do usuário           |
+| createdAt  | DATETIME NOT NULL | Data e hora de criação do usuário           |
+| editedAt  | DATETIME NOT NULL | Data e hora de edição do usuário           |
 | description | TEXT  | Descrição do perfil do usuário | 
 | gender | VARCHAR(62) | Gênero do usuário | 
 | premium | DATETIME | Indica o último dia que o usuário tem de premium  |
@@ -154,7 +155,9 @@ Defina as tabelas ou coleções que serão usadas no banco de dados.
 | instructorId      | INT NOT NULL | ID do instrutor que criou a aula        |
 | title            | VARCHAR(255) NOT NULL | Título da aula                          |
 | description        | TEXT          | Descrição detalhada da aula             |
-| date              | DATETIME NOT NULL | Data e hora da aula ao vivo             |
+| createdAt             | DATETIME NOT NULL | Data e hora de registro da aula            |
+| editedAt             | DATETIME NOT NULL | Data e hora de edição da aula            |
+| happensAt             | DATETIME NOT NULL | Data e hora da aula ao vivo             |
 | cost             | DECIMAL(10, 2) NOT NULL | Preço da aula                           |
 | tags         | TEXT[]          | Tags da aula |
 | extraFiles   | TEXT[]          | Lista de URLs de arquivos extras (PDFs, etc.)|
@@ -166,7 +169,7 @@ Defina as tabelas ou coleções que serão usadas no banco de dados.
 | id                | INT NOT NULL UNIQUE PK          | Identificador único da compra           |
 | studentId          | INT NOT NULL  | ID do aluno que comprou a aula          |
 | classId           | INT NOT NULL  | ID da aula comprada                     |
-| date       | DATETIME NOT NULL | Data e hora da compra                   |
+| soldAt       | DATETIME NOT NULL | Data e hora da compra                   |
 | cost             | DECIMAL(10, 2) NOT NULL | Preço pago pela aula                    |
 
 ### Tabela de Avaliações
@@ -178,7 +181,8 @@ Defina as tabelas ou coleções que serão usadas no banco de dados.
 | studentId          | INT NOT NULL          | ID do aluno que fez a avaliação         |
 | note        | DECIMAL(1, 1) NOT NULL          | Nota da avaliação (1.0 a 5.0)               |
 | contents        | TEXT          | Comentário adicional do aluno           |
-| date    | DATETIME NOT NULL     | Data da avaliação                       |
+| createdAt    | DATETIME NOT NULL     | Data da avaliação                       |
+| editedAt    | DATETIME NOT NULL     | Data de edição avaliação                       |
 
 ### Tabela de Mensagens
 
@@ -188,7 +192,7 @@ Defina as tabelas ou coleções que serão usadas no banco de dados.
 | senderId  | INT NOT NULL         | ID do usuário remetente            |
 | recipientId | INT NOT NULL      | ID do usuário destinatário         |
 | contents      | TEXT NOT NULL        | Texto da mensagem                  |
-| date    | DATETIME NOT NULL    | Data de envio                      |
+| createdAt    | DATETIME NOT NULL    | Data de envio                      |
 
 ### Tabela de Fórum
 
@@ -198,7 +202,8 @@ Defina as tabelas ou coleções que serão usadas no banco de dados.
 | authorId      | INT NOT NULL        | ID do usuário que fez o post       |
 | title        | VARCHAR(255) NOT NULL | Título do post                      |
 | contents      | TEXT NOT NULL       | Conteúdo do post                    |
-| date | DATETIME NOT NULL   | Data e hora da postagem             |
+| createdAt | DATETIME NOT NULL   | Data e hora da postagem             |
+| editedAt  | DATETIME NOT NULL   | Data e hora de edição da postagem |
 
 ---
 
