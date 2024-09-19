@@ -36,7 +36,7 @@ CREATE TABLE sells (
 );
  
 -- Tabela de Avaliações
-CREATE TABLE avaliations (
+CREATE TABLE evaluations (
    id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
    classId INT NOT NULL,
    studentId INT NOT NULL,
